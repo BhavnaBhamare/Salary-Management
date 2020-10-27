@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 20, 2019 3:15:30 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Employee" table="employee" catalog="salarymanagement">
+        <id name="eid" type="java.lang.Integer">
+            <column name="eid" />
+            <generator class="identity" />
+        </id>
+        <property name="employeeId" type="java.lang.Integer">
+            <column name="employeeId" />
+        </property>
+        <property name="fname" type="string">
+            <column name="fname" length="200" />
+        </property>
+        <property name="lname" type="string">
+            <column name="lname" length="200" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="200" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="200" />
+        </property>
+        <property name="gender" type="string">
+            <column name="gender" length="200" />
+        </property>
+        <property name="profileimage" type="string">
+            <column name="profileimage" length="200" />
+        </property>
+        <set name="salaries" table="salary" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="emp_id" />
+            </key>
+            <one-to-many class="com.pojo.Salary" />
+        </set>
+        <set name="attendances" table="attendance" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="emp_id" />
+            </key>
+            <one-to-many class="com.pojo.Attendance" />
+        </set>
+    </class>
+</hibernate-mapping>

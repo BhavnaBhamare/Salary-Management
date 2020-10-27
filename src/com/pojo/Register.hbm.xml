@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 20, 2019 3:15:30 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Register" table="register" catalog="salarymanagement">
+        <id name="rid" type="java.lang.Integer">
+            <column name="rid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="role" class="com.pojo.Role" fetch="select">
+            <column name="roleid" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="200" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="200" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>
